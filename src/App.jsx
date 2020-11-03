@@ -34,6 +34,10 @@ Update=(index)=>{
 
 
 }
+DeleteAll = ()=>{
+  this.state.todos=[]
+  this.setState({todos:this.state.todos})
+}
 
 
   render(){
@@ -46,13 +50,14 @@ Update=(index)=>{
             {this.state.todos.map((v,i)=>{
 
               return(
-                <tbody key={i.activity}><tr >
-                  <td>{i}</td>
+                <tbody><tr key={i} >
+                  <td>{i+1}</td>
                   <td >{v.stat ? <td><input value={this.state.value1} onChange={(e)=>{this.setState({value1:e.target.value})}} type="text" name="" id="" placeholder="Enter a value"/></td> : v.activity} </td>
                   { v.stat? <td><button onClick={()=>this.Update(i)}>Update</button></td> :
                   <td><button onClick={()=> {this.Edit(i)}}>edit</button></td>}
                   <td><button onClick={()=> this.delete(i)}>Delete</button></td>
-                  
+                  <td><button onClick={()=>this.DeleteAll()}>delete all</button></td>
+                  aa
                 </tr>
                 </tbody>
             
